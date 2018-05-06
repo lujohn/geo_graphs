@@ -299,14 +299,14 @@ def run_file(dname, fname, epsilons, dim=2, kMax=7):
 
     # Load Centered Distances from disk if exists
     D = load_dists(dname, fname)
-    if D == None:
+    if D is None:
         print('Calculating Distances...')
         D = get_dists(G, kMax)
         save_dists(dname, fname, D)
 
     # Load embedding coordinates from disk if exists
     X_hat = load_embedding_coords(dname, fname)
-    if X_hat == None:
+    if X_hat is None:
         print("Calculating Embedding Coordinates...")
         U,S,V = np.linalg.svd(D)
         # Take the 'dim' largest eigenvalues and eigenvectors
